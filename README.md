@@ -11,9 +11,9 @@ The user is asked to ask a question about the document when the app asks. The ap
 3. The chunk with the most words matched gets sent to Claude. Claude answers the question based on the text in the chunk. If the question is not found in the chunk a message is sent to the user that the document does not cover that question. 
 
 ## How to run it
-pip install anthropic
-set ANTHROPIC_API_KEY as an environment variable (your own key)
-Run python rag_app.py
+- pip install anthropic
+- set ANTHROPIC_API_KEY as an environment variable (your own key)
+- Run python rag_app.py
 
 ## Example
 Question - Which planet is the largest?
