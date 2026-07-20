@@ -3,7 +3,9 @@
 A small Retrieval-Augmented Generation app in Python: ask a question about a document, and Claude answers using only what the document says.
 
 ## What it does
-The user is asked to ask a question about the document when the app asks. The app finds the right part of the document and then AI answers the user's question from the document. If the answer is not found in the document, the AI lets the user know that the answer is not in the document.
+- The user is asked to ask a question about the document when the app asks. 
+- The app finds the right part of the document and then AI answers the user's question from the document.
+- If the answer is not found in the document, the AI lets the user know that the answer is not in the document.
 
 ## How it works
 1. The app divides the document into chunks.
