@@ -28,7 +28,7 @@ Retrieved chunk - None.
 Answer - Sorry, the document does not cover that question.
 
 ## Honest limitations
-- Keyword matching sees letters, not meaning, so similar words don't get matched - if the user enters the word "biggest" and the text contains the words "largest", the app won't find the word "largest" in the document.
+- Keyword matching sees letters, not meaning, so similar words don't get matched - if the user enters the word "biggest" and the text contains the words "largest", the app won't find the word "biggest" in the document.
 - The user can't upload his own document (planned for next version)
 - If two chunks have a tie in the number of keywords matched, the app will choose the first chunk from the two and send it to the AI. 
 
