@@ -3,7 +3,9 @@
 A small Retrieval-Augmented Generation app in Python: ask a question about a document, and Claude answers using only what the document says.
 
 ## What it does
-The user is asked to ask a question about the document when the app asks. The app finds the right part of the document and then AI answers the user's question from the document. If the answer is not found in the document, the AI lets the user know that the answer is not in the document.
+- The user is asked to ask a question about the document when the app asks. 
+- The app finds the right part of the document and then AI answers the user's question from the document.
+- If the answer is not found in the document, the AI lets the user know that the answer is not in the document.
 
 ## How it works
 1. The app divides the document into chunks.
@@ -11,9 +13,9 @@ The user is asked to ask a question about the document when the app asks. The ap
 3. The chunk with the most words matched gets sent to Claude. Claude answers the question based on the text in the chunk. If the question is not found in the chunk a message is sent to the user that the document does not cover that question. 
 
 ## How to run it
-pip install anthropic
-set ANTHROPIC_API_KEY as an environment variable (your own key)
-Run python rag_app.py
+- pip install anthropic
+- set ANTHROPIC_API_KEY as an environment variable (your own key)
+- Run python rag_app.py
 
 ## Example
 Question - Which planet is the largest?
@@ -26,7 +28,7 @@ Retrieved chunk - None.
 Answer - Sorry, the document does not cover that question.
 
 ## Honest limitations
-- Keyword matching sees letters, not meaning, so similar words don't get matched - if the user enters the word "biggest" and the text contains the words "largest", the app won't find the word "largest" in the document.
+- Keyword matching sees letters, not meaning, so similar words don't get matched - if the user enters the word "biggest" and the text contains the words "largest", the app won't find the word "biggest" in the document.
 - The user can't upload his own document (planned for next version)
 - If two chunks have a tie in the number of keywords matched, the app will choose the first chunk from the two and send it to the AI. 
 
