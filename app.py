@@ -3,12 +3,6 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-def split_document(filename):
-    with open(filename, "r", encoding="utf-8") as f:
-        text = f.read()
-    chunks = text.split("\n\n")
-    return chunks
-
 def find_best_chunk(question, chunks):
     question_words = question.lower().split()
     best_chunk = chunks[0]
@@ -37,22 +31,25 @@ def ask_claude(prompt):
 
 st.title("Chat With Your Documents")
 
+uploaded = st.file_uploader("Upload a text file", type="txt")
 question = st.text_input("Ask a question about the document: ")
 
-if question:
-    chunks = split_document("space_facts.txt")
-    best = find_best_chunk(question, chunks)
+if uploaded:
+    if question:
+        text = uploaded.read().decode("utf-8")
+        chunks = text.split("\n\n")
+        best = find_best_chunk(question, chunks)
 
-    if best is None:
-        st.write("Sorry, the document does not cover that question.")
-    else:
-       prompt = f"""Here is a part of a document:
+        if best is None:
+            st.write("Sorry, the document does not cover that question.")
+        else:
+            prompt = f"""Here is a part of a document:
 
 {best}
 
 using ONLY the text above, answer this question: {question}"""
 
-    st.write("Retrieved chunk:", best)
-    st.write("-----")
-    st.write("Claude's answer:", ask_claude(prompt))
+            st.write("Retrieved chunk:", best)
+            st.write("-----")
+            st.write("Claude's answer:", ask_claude(prompt))
 
